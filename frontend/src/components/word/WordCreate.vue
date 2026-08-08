@@ -36,11 +36,11 @@ async function onSubmit() {
 
     <form @submit.prevent="onSubmit">
       <div class="mb-3">
-        <label class="form-label">Word</label>
+        <label class="form-label">English word</label>
         <input v-model="firstLanguage" type="text" class="form-control" required />
       </div>
       <div class="mb-3">
-        <label class="form-label">Meaning</label>
+        <label class="form-label">Japanese word</label>
         <input v-model="secondLanguage" type="text" class="form-control" required />
       </div>
       <div class="mb-3">

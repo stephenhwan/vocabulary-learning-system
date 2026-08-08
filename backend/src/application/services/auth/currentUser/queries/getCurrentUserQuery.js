@@ -7,12 +7,11 @@ class getCurrentUserQuery {
 }
 
 class getCurrentUserHandler {
-  /** @param {import('../../../../interfaces/IUserRepository')} userRepository */
+  
   constructor(userRepository) {
     this.userRepository = userRepository
   }
 
-  /** @param {getCurrentUserQuery} query */
   async execute(query) {
     const user = await this.userRepository.findById(query.userId)
     if (!user) {

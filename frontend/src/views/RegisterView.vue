@@ -25,7 +25,7 @@ async function onSubmit() {
   authStore.clearError()
 
   if (form.password !== form.confirmPassword) {
-    clientError.value = 'Mật khẩu xác nhận không khớp.'
+    clientError.value = 'Passwords do not match.'
     return
   }
 
@@ -47,8 +47,8 @@ async function onSubmit() {
   <div class="auth-page d-flex align-items-center justify-content-center min-vh-100 bg-light">
     <div class="card shadow-sm" style="width: 100%; max-width: 440px">
       <div class="card-body p-4 p-md-5">
-        <h1 class="h3 mb-1 text-center">Tạo tài khoản</h1>
-        <p class="text-muted text-center mb-4">Product Backlog Management System</p>
+        <h1 class="h3 mb-1 text-center">Sign up</h1>
+        <p class="text-muted text-center mb-4">Create your account</p>
 
         <div v-if="clientError || authStore.error" class="alert alert-danger py-2" role="alert">
           {{ clientError || authStore.error }}
@@ -56,13 +56,13 @@ async function onSubmit() {
 
         <form novalidate @submit.prevent="onSubmit">
           <div class="mb-3">
-            <label for="name" class="form-label">Họ và tên</label>
+            <label for="name" class="form-label">Full Name</label>
             <input
               id="name"
               v-model.trim="form.name"
               type="text"
               class="form-control"
-              placeholder="Nguyễn Văn A"
+              placeholder="Tran Gia Huy"
               autocomplete="name"
               required
             />
@@ -75,7 +75,7 @@ async function onSubmit() {
               v-model.trim="form.email"
               type="email"
               class="form-control"
-              placeholder="ban@vidu.com"
+              placeholder="admin123@"
               autocomplete="email"
               required
             />
@@ -88,7 +88,7 @@ async function onSubmit() {
               v-model="form.password"
               type="password"
               class="form-control"
-              placeholder="Tối thiểu 6 ký tự"
+              placeholder="••••••••"
               autocomplete="new-password"
               required
             />
@@ -106,19 +106,19 @@ async function onSubmit() {
               required
             />
             <div v-if="passwordsMismatch" class="invalid-feedback">
-              Mật khẩu xác nhận không khớp.
+              Passwords do not match.
             </div>
           </div>
 
           <button type="submit" class="btn btn-primary w-100" :disabled="submitting">
             <span v-if="submitting" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
-            {{ submitting ? 'Đang tạo tài khoản...' : 'Đăng ký' }}
+            {{ submitting ? 'Creating account...' : 'Sign up' }}
           </button>
         </form>
 
         <p class="text-center mt-4 mb-0">
-          Đã có tài khoản?
-          <RouterLink to="/login">Đăng nhập</RouterLink>
+          Already have an account?
+          <RouterLink to="/login">Sign in</RouterLink>
         </p>
       </div>
     </div>

@@ -101,6 +101,7 @@ function prevPage() {
                                     <button class="btn btn-sm btn-outline-info me-2" @click="goToDetail(vocab.slug)">
                                         Show
                                     </button>
+                                    
                                     <template v-if="canManage(vocab)">
                                         <button class="btn btn-sm btn-outline-primary me-2" @click="goToEdit(vocab.slug)">
                                             Edit
